@@ -1,0 +1,46 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-weight: normal;
+}
+
+body {
+    background: #f0f0f0;
+    font-family: Arial;
+}
+
+main {
+    max-width: 1170px;
+    margin: 0 auto;
+    background: #f8f8f8;
+    height: 100vh;
+}
+
+.bg_regex {
+    padding: 20px;
+    width: 300px;
+    height: auto;
+    background: #3d6fac;
+    color: #fff;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+#text { padding:50px;
+}
+p {
+    line-height: 22px;
+    
+}
+#res_test {
+
+background:#fff;
+}
+.false { color:#9a0c0c; padding:5px;
+}
+.true {
+    color: #13890a;
+    padding: 5px;
+}

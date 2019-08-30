@@ -1,0 +1,97 @@
+<!DOCUMENT html>
+<html>
+<head>
+
+    <title>Working with Javascript</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        
+3
+4
+        document.addEventListener('DOMContentLoaded', function (event) {
+
+            var btn_test = document.querySelector("#btn_test");
+            btn_test.addEventListener('click', result);
+            
+
+
+            function getText() {
+                let mainText = document.querySelector("#text p").textContent;
+                 return mainText;
+            }
+
+                 function getInput() {
+                 let input = document.querySelector("#input_regex").value;
+                 return input;
+
+            }
+
+
+            function testRegex() {
+
+                let inputValue = getInput();
+                let regex = RegExp(inputValue);
+                let text = getText();         
+                let result = regex.test(text);     
+                return result;
+           
+            }
+
+            function result() {
+                let res = document.querySelector('#res_test');
+                let test = testRegex();
+                let result;
+                if (test) {
+
+                    result = "<p class='true'>True</p>";
+                } else {
+
+                    result = "<p class='false'>False</p>";
+
+                }
+
+                res.innerHTML = result;
+
+            }
+
+
+           
+
+
+
+
+                
+ 
+});
+       
+    </script>
+
+
+</head>
+<body>
+    <main>
+
+        <div class="bg_regex" > 
+            <h2>Regex if Test</h2>
+            <input id="input_regex" type="text" value="" placeholder="Regex"/>
+            <button id="btn_test">Execute</button>
+
+            <p>Test</p>
+            <p>Test() executes a search throw a string and return true if find it</p>
+            <div class="res" id="res_test"></div>
+        </div>
+
+        <div id="text">
+           
+            <p>
+                What are Fairy Tales?
+                Fairy Tales are stories involving fantastic forces, usually good versus evil, most originating in folklore, mythology, and legend. They feature fantasy beings like dragons, dwarfs, fairies and talking animals. They aren't just for kids. In fact, many are complex morality tales; some are graphic or morbid, and shouldn't be read to children at all. We recommend previewing stories before reading with your children.
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
