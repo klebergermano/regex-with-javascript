@@ -38,6 +38,11 @@ p {
 
 background:#fff;
 }
+
+
+#res_test p{
+    color:#333;  padding:5px 10px;
+}
 .false { color:#9a0c0c; padding:5px;
 }
 .true {
