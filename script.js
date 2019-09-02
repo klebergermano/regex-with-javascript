@@ -1,8 +1,10 @@
 class AppRegex {
 
+    htmlText = document.querySelector("#text p");
+
     get text() {
 
-        let mainText = document.querySelector("#text p").textContent;
+        let mainText = this.htmlText.textContent;
         return mainText;
     }
 
@@ -31,10 +33,14 @@ class TestRegex extends AppRegex {
         let res = document.querySelector('#res_test');
         let test = this.resultTest;
         let result;
+        let regex = RegExp(this.inputValue, 'g');
+
+        let countRegex = this.text.match(regex);
+    
 
         if (test) {
 
-            result = `<p>${this.input}: <span class='true'>True</span></p>`;
+            result = `<p>${this.input}: <span class='true'>True</span> <span>${countRegex.length}</span> results find</p>`;
 
         } else {
 
@@ -47,18 +53,55 @@ class TestRegex extends AppRegex {
     }
 
 
+
+
+
 }
+
+
+class ReplaceRegex extends AppRegex {
+    input = this.input;
+    text = this.text;
+    htmlText = this.htmlText;
+
+    run() {
+
+
+
+        let regex1 = RegExp(this.input, 'g');
+        let replace = this.text.replace(regex1, "<span class='highlight'>" + this.input + "</span>");
+        this.htmlText.innerHTML = replace;
+
+
+
+    }
+
+};
 
 function execTest() {
-    let test = new TestRegex();
-    test.appendResultTest();
+
+  
+
 }
 
 
 
+function replaceRegex() {
+    let test = new TestRegex();
+    test.appendResultTest();
 
-btn_test = document.querySelector("#btn_test");
+    let replace = new ReplaceRegex();
+    replace.run();
+ 
+}
+
+
+
+var btn_test = document.querySelector("#btn_test");
+var typeInput = document.querySelector("#input_regex");
+
 btn_test.addEventListener('click', execTest);
+typeInput = addEventListener('input', replaceRegex);
 
 
 
