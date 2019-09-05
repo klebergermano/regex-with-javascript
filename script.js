@@ -83,6 +83,19 @@ function execTest() {
 
 }
 
+function caseSensitive() {
+    let btn = checkbox.getAttribute('checked');
+    if (btn == 'checked') {
+
+        checkbox.setAttribute('checked', ' ');
+      
+    } else {
+
+        checkbox.setAttribute('checked', 'checked');
+        
+    }
+
+}
 
 
 function replaceRegex() {
@@ -91,15 +104,17 @@ function replaceRegex() {
 
     let replace = new ReplaceRegex();
     replace.run();
+
  
 }
 
 
 
-var btn_test = document.querySelector("#btn_test");
 var typeInput = document.querySelector("#input_regex");
 
-btn_test.addEventListener('click', execTest);
+var checkbox = document.querySelector("#case_sensitive");
+
+checkbox.addEventListener('click', caseSensitive);
 typeInput = addEventListener('input', replaceRegex);
 
 
