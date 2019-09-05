@@ -108,13 +108,27 @@ function replaceRegex() {
  
 }
 
+function displayFlags() {
+    let visibility = checkbox.querySelector('ul').style.display;
+    if (visibility != 'block') {
+        checkbox.querySelector('ul').style.display = 'block';
+    } else {
+        checkbox.querySelector('ul').style.display = 'none';
+
+    }
+    
+    
+   
+
+    
+}
 
 
 var typeInput = document.querySelector("#input_regex");
 
-//var checkbox = document.querySelector("#case_sensitive");
+var checkbox = document.querySelector("#flags");
+checkbox.querySelector('span').addEventListener('click', displayFlags);
 
-//checkbox.addEventListener('click', caseSensitive);
 typeInput = addEventListener('input', replaceRegex);
 
 
