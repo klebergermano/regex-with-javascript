@@ -10,19 +10,35 @@
 
 <body>
     <main>
+        <style>
 
+         
+        </style>
         <div class="bg_regex">
             <h2>Regex with Test</h2>
             <input id="input_regex" type="text" value="" placeholder="Regex" />
-            <label><input type="checkbox" id="case_sensitive" checked="checked" />Case Sensitive</label>
+        <div id="flags"><span>Flags</span>
+                        <ul>
+                            <li><label><input type="checkbox" /> Global </label></li>
+                            <li><label><input type="checkbox" /> Multline </label></li>
+                            <li><label><input type="checkbox" /> Insensitive </label></li>
+                            <li><label><input type="checkbox" /> Dotall </label></li>
+                            <li><label><input type="checkbox" /> Enables </label></li>
+                            <li><label><input type="checkbox" /> Sticky </label></li>
 
-            <p><br>
-                Test() executes a search throw a string and return true if find it or false if don't
-            </p>
+                        </ul>
+
+        </div>
+
+
+        <p>
+            <br> 
+            Test() executes a search throw a string and return true if find it or false if don't
+        </p>
 
             <div class="res" id="res_test"></div>
 
-            </div><!--bg_regex-->
+        </div><!--bg_regex-->
 
         <div id="text">
 

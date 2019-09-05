@@ -77,9 +77,8 @@ class ReplaceRegex extends AppRegex {
 
 };
 
-function execTest() {
+function flags() {
 
-  
 
 }
 
@@ -88,6 +87,7 @@ function caseSensitive() {
     if (btn == 'checked') {
 
         checkbox.setAttribute('checked', ' ');
+
       
     } else {
 
@@ -112,9 +112,9 @@ function replaceRegex() {
 
 var typeInput = document.querySelector("#input_regex");
 
-var checkbox = document.querySelector("#case_sensitive");
+//var checkbox = document.querySelector("#case_sensitive");
 
-checkbox.addEventListener('click', caseSensitive);
+//checkbox.addEventListener('click', caseSensitive);
 typeInput = addEventListener('input', replaceRegex);
 
 
