@@ -66,13 +66,12 @@ class ReplaceRegex extends AppRegex {
 
     run() {
 
-
-
         let regex1 = RegExp(this.input, 'g');
-        let replace = this.text.replace(regex1, "<span class='highlight'>" + this.input + "</span>");
+        let replace = this.text.replace(regex1, function (x) {
+           let r =  "<span class='highlight'>" + x + "</span>"
+            return r;
+        });
         this.htmlText.innerHTML = replace;
-
-
 
     }
 
