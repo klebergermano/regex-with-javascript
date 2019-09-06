@@ -1,3 +1,11 @@
+
+var typeInput = document.querySelector("#input_regex");
+var checkbox = document.querySelector("#flags");
+
+typeInput.addEventListener('input', funcRegex);
+checkbox.querySelector('span').addEventListener('click', funcFlags);
+
+
 class AppRegex {
 
     htmlText = document.querySelector("#text p");
@@ -33,18 +41,13 @@ class TestRegex extends AppRegex {
         let test = this.resultTest;
         let result;
         let regex = RegExp(this.inputValue, 'g');
-
         let countRegex = this.text.match(regex);
     
 
         if (test) {
-
             result = `<p>${this.input}: <span class='true'>True</span> <span>${countRegex.length}</span> results find</p>`;
-
         } else {
-
             result = `<p>${this.input}: <span class='false'>False</span></p>`;
-
         }
 
         res.innerHTML = result;
@@ -60,44 +63,57 @@ class ReplaceRegex extends AppRegex {
     htmlText = this.htmlText;
 
     run() {
-    
-        document.querySelector('#flags ul').style.display = "none";
 
-        let regex1 = RegExp(this.input, 'g');
+        let flags = 'g';
+
+
+        //Display the 'flags ul' as none if it was visible when the input was used
+        document.querySelector('#flags ul').style.display = "none"; 
+
+        //Add highlight in the text replacing the found val to the same val with a span tag with the class 'highlight'
+        let regex1 = RegExp(this.input, flags);
         let replace = this.text.replace(regex1, function (x) {
         let r =  "<span class='highlight'>" + x + "</span>"
         return r;
         });
         this.htmlText.innerHTML = replace;
-
-    }
-   
+    }   
 };
 
-
 class Flags extends AppRegex {
+   g = null
+   i = null 
+    m = null 
+    setFlags() {
+
+
+    }
+
+
+    getFlags() {
+
+
+
+    }
 
 
     visibilityFlags() {
 
+        // Add the funciont visibily to flag when push the Flags button
         let visibility = document.querySelector('#flags ul').style.display;
-
 
         if (visibility != 'block') {
             document.querySelector('#flags ul').style.display = "block";
-
-
         } else {
-
             document.querySelector('#flags ul').style.display = "none";
-
         }
     }
 
 }
 
 
-function replaceRegex() {
+function funcRegex() {
+
     let test = new TestRegex();
     test.appendResultTest();
 
@@ -106,19 +122,13 @@ function replaceRegex() {
 
 }
 
-function displayFlags() {
+function funcFlags() {
     let flags = new Flags();
     flags.visibilityFlags();
 
 }
 
 
-var typeInput = document.querySelector("#input_regex");
-
-var checkbox = document.querySelector("#flags");
-checkbox.querySelector('span').addEventListener('click', displayFlags);
-
-typeInput = addEventListener('input', replaceRegex);
 
 
 
