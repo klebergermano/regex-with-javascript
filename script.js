@@ -3,7 +3,6 @@ class AppRegex {
     htmlText = document.querySelector("#text p");
 
     get text() {
-
         let mainText = this.htmlText.textContent;
         return mainText;
     }
@@ -51,48 +50,48 @@ class TestRegex extends AppRegex {
         res.innerHTML = result;
 
     }
-
-
-
-
-
 }
 
 
 class ReplaceRegex extends AppRegex {
+
     input = this.input;
     text = this.text;
     htmlText = this.htmlText;
 
     run() {
+    
+        document.querySelector('#flags ul').style.display = "none";
 
         let regex1 = RegExp(this.input, 'g');
         let replace = this.text.replace(regex1, function (x) {
-           let r =  "<span class='highlight'>" + x + "</span>"
-            return r;
+        let r =  "<span class='highlight'>" + x + "</span>"
+        return r;
         });
         this.htmlText.innerHTML = replace;
 
     }
-
+   
 };
 
-function flags() {
+
+class Flags extends AppRegex {
 
 
-}
+    visibilityFlags() {
 
-function caseSensitive() {
-    let btn = checkbox.getAttribute('checked');
-    if (btn == 'checked') {
+        let visibility = document.querySelector('#flags ul').style.display;
 
-        checkbox.setAttribute('checked', ' ');
 
-      
-    } else {
+        if (visibility != 'block') {
+            document.querySelector('#flags ul').style.display = "block";
 
-        checkbox.setAttribute('checked', 'checked');
-        
+
+        } else {
+
+            document.querySelector('#flags ul').style.display = "none";
+
+        }
     }
 
 }
@@ -105,22 +104,12 @@ function replaceRegex() {
     let replace = new ReplaceRegex();
     replace.run();
 
- 
 }
 
 function displayFlags() {
-    let visibility = checkbox.querySelector('ul').style.display;
-    if (visibility != 'block') {
-        checkbox.querySelector('ul').style.display = 'block';
-    } else {
-        checkbox.querySelector('ul').style.display = 'none';
+    let flags = new Flags();
+    flags.visibilityFlags();
 
-    }
-    
-    
-   
-
-    
 }
 
 
