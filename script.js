@@ -1,9 +1,4 @@
 
-var typeInput = document.querySelector("#input_regex");
-var checkbox = document.querySelector("#flags");
-
-typeInput.addEventListener('input', funcRegex);
-checkbox.querySelector('span').addEventListener('click', funcFlags);
 
 
 class AppRegex {
@@ -80,22 +75,36 @@ class ReplaceRegex extends AppRegex {
     }   
 };
 
+
+
 class Flags extends AppRegex {
-   g = null
-   i = null 
-    m = null 
-    setFlags() {
 
+   
+    flags_ul = document.querySelector('#flags ul');
 
-    }
-
-
-    getFlags() {
-
-
+    checkFlags() {
+        
+        let input = document.getElementsByClassName('checkbox_flags');
+    
+        
 
     }
 
+    flagsNodes() {
+
+       
+        let li = this.flags_ul.getElementsByTagName('li');
+        let c = li.length;
+
+        for (let i = 0; i < c; i++) {
+
+            let x = li[i].querySelector('input').getAttribute('checked');
+          
+
+        }
+       
+
+    }
 
     visibilityFlags() {
 
@@ -108,8 +117,12 @@ class Flags extends AppRegex {
             document.querySelector('#flags ul').style.display = "none";
         }
     }
-
+    
 }
+
+let teste = new Flags();
+teste.checkFlags();
+
 
 
 function funcRegex() {
@@ -128,7 +141,26 @@ function funcFlags() {
 
 }
 
+function checkboxFlags(x) {
+    alert(x.getAttribute('name'));
 
+    let flag = new Flags();
+    flag.checkFlags();
+}
+
+
+
+var typeInput = document.querySelector("#input_regex");
+typeInput.addEventListener('input', funcRegex);
+
+var btn_flags = document.querySelector("#flags");
+    btn_flags.querySelector('span').addEventListener('click', funcFlags);
+
+   
+   
+
+
+ 
 
 
 
