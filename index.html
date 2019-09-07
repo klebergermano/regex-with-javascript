@@ -19,12 +19,12 @@
             <input id="input_regex" type="text" value="" placeholder="Regex" />
         <div id="flags"><span>Flags</span>
                         <ul>
-                            <li><label><input type="checkbox" class="checkbox_flags" name="global" onclick="checkboxFlags(this)"/> Global </label></li>
-                            <li><label><input type="checkbox" class="checkbox_flags"  onclick="checkboxFlags(this)"/> Multline </label></li>
-                            <li><label><input type="checkbox" class="checkbox_flags"  onclick="checkboxFlags(this)"/> Insensitive </label></li>
-                            <li><label><input type="checkbox" class="checkbox_flags"  onclick="checkboxFlags(this)"/> Dotall </label></li>
-                            <li><label><input type="checkbox" class="checkbox_flags"  onclick="checkboxFlags(this)"/> Enables </label></li>
-                            <li><label><input type="checkbox" class="checkbox_flags"  onclick="checkboxFlags(this)"/> Sticky </label></li>
+                            <li><label><input type="checkbox" class="checkbox_flags" name="g" data-checked="unchecked" onclick="checkboxFlags(this)"/> Global </label></li>
+                            <li><label><input type="checkbox" class="checkbox_flags" name="m" data-checked="unchecked" onclick="checkboxFlags(this)"/> Multline </label></li>
+                            <li><label><input type="checkbox" class="checkbox_flags" name="i" data-checked="unchecked" onclick="checkboxFlags(this)"/> Insensitive </label></li>
+                            <li><label><input type="checkbox" class="checkbox_flags" name="d" data-checked="unchecked" onclick="checkboxFlags(this)"/> Dotall </label></li>
+                            <li><label><input type="checkbox" class="checkbox_flags" name="e" data-checked="unchecked" onclick="checkboxFlags(this)"/> Enables </label></li>
+                            <li><label><input type="checkbox" class="checkbox_flags" name="s" data-checked="unchecked" onclick="checkboxFlags(this)"/> Sticky </label></li>
 
                         </ul>
 

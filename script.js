@@ -57,9 +57,9 @@ class ReplaceRegex extends AppRegex {
     text = this.text;
     htmlText = this.htmlText;
 
-    run() {
+    run(x) {
 
-        let flags = 'g';
+        let flags = x;
 
 
         //Display the 'flags ul' as none if it was visible when the input was used
@@ -82,29 +82,47 @@ class Flags extends AppRegex {
    
     flags_ul = document.querySelector('#flags ul');
 
-    checkFlags() {
-        
-        let input = document.getElementsByClassName('checkbox_flags');
-    
-        
+    clickCheckbox(x) {
+        let data = x.getAttribute('data-checked');
+        let name = x.getAttribute('name');
+        let input = document.getElementsByName(name);
 
-    }
+        if (data == 'unchecked') {
+           
+            input[0].setAttribute('data-checked', 'checked');
+            
+        } else {
+            input[0].setAttribute('data-checked', 'unchecked');
+            
 
-    flagsNodes() {
-
-       
-        let li = this.flags_ul.getElementsByTagName('li');
-        let c = li.length;
-
-        for (let i = 0; i < c; i++) {
-
-            let x = li[i].querySelector('input').getAttribute('checked');
-          
 
         }
+
+    }
+
+
+    checkFlags(x) {
+
+        this.clickCheckbox(x);
+        let input = document.getElementsByClassName('checkbox_flags');
+        let c = input.length;
+        let txtFlags = '';
+        for (let i = 0; i < c; i++) {
+
+            if (input[i].getAttribute('data-checked') == 'checked') {
+                txtFlags += input[i].getAttribute('name');
+               
+            };
+
+           
+        }
+        let regex = new ReplaceRegex();
+        regex.run(txtFlags);
+
        
 
     }
+
 
     visibilityFlags() {
 
@@ -113,6 +131,7 @@ class Flags extends AppRegex {
 
         if (visibility != 'block') {
             document.querySelector('#flags ul').style.display = "block";
+
         } else {
             document.querySelector('#flags ul').style.display = "none";
         }
@@ -120,8 +139,7 @@ class Flags extends AppRegex {
     
 }
 
-let teste = new Flags();
-teste.checkFlags();
+
 
 
 
@@ -135,17 +153,19 @@ function funcRegex() {
 
 }
 
-function funcFlags() {
+function visibilityFlags() {
+
     let flags = new Flags();
     flags.visibilityFlags();
 
 }
 
 function checkboxFlags(x) {
-    alert(x.getAttribute('name'));
+     
+    let checkbox = new Flags();
+    checkbox.checkFlags(x);
 
-    let flag = new Flags();
-    flag.checkFlags();
+
 }
 
 
@@ -154,7 +174,7 @@ var typeInput = document.querySelector("#input_regex");
 typeInput.addEventListener('input', funcRegex);
 
 var btn_flags = document.querySelector("#flags");
-    btn_flags.querySelector('span').addEventListener('click', funcFlags);
+    btn_flags.querySelector('span').addEventListener('click', visibilityFlags);
 
    
    
