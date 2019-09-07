@@ -57,14 +57,9 @@ class ReplaceRegex extends AppRegex {
     text = this.text;
     htmlText = this.htmlText;
 
-    run(x) {
+    run(x = 'gi') {
 
         let flags = x;
-
-
-        //Display the 'flags ul' as none if it was visible when the input was used
-        document.querySelector('#flags ul').style.display = "none"; 
-
         //Add highlight in the text replacing the found val to the same val with a span tag with the class 'highlight'
         let regex1 = RegExp(this.input, flags);
         let replace = this.text.replace(regex1, function (x) {
@@ -144,6 +139,8 @@ class Flags extends AppRegex {
 
 
 function funcRegex() {
+    //Display the 'flags ul' as none if it was visible when the input was used
+    document.querySelector('#flags ul').style.display = "none"; 
 
     let test = new TestRegex();
     test.appendResultTest();
@@ -176,8 +173,18 @@ typeInput.addEventListener('input', funcRegex);
 var btn_flags = document.querySelector("#flags");
     btn_flags.querySelector('span').addEventListener('click', visibilityFlags);
 
+function clickout(e) {
+    let box = document.getElementById('regex_box');
    
+    if (!box.contains(e.target)) {
+
+            document.querySelector('#flags ul').style.display = "none";
+        } 
+  
+
+}
    
+window.addEventListener('click', clickout)
 
 
  
